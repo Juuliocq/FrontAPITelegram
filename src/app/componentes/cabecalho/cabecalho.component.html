@@ -1,0 +1,20 @@
+<header [ngClass]="{'red':!apiOnline, 'green':apiOnline}" class="header">
+    <div class="header__container">
+        <button [ngClass]="{'button-reload-spinning':clicked, 'button-reload-notspinning':!clicked}" (click)="verifyAPIOnline()" class="button-reload"></button>
+
+        <div *ngIf="apiOnline; then divApiOnline else divApiOffline">
+        </div>
+    </div>
+</header>
+
+<ng-template #divApiOffline>
+    <div>
+      <p>API OFFLINE! Verifique a conexão e se o serviço está ativo.</p>
+    </div>
+</ng-template>
+
+<ng-template #divApiOnline>
+    <div>
+      <p>API ONLINE!</p>
+    </div>
+</ng-template>
