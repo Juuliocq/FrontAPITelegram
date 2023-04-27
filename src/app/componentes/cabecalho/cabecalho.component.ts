@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 
 @Component({
@@ -10,6 +10,7 @@ export class CabecalhoComponent implements OnInit {
 
   @Input() apiOnline!: boolean;
   clicked!: boolean;
+  @Output() newItemEvent = new EventEmitter<boolean>();
 
   constructor(private apiService: ApiServiceService) { }
 
@@ -23,10 +24,12 @@ export class CabecalhoComponent implements OnInit {
     this.apiService.getApiOnline().subscribe({
       complete: () => {
         this.apiOnline = true;
+        this.newItemEvent.emit(true);
         this.clicked = false;
       }, 
       error: () => {
         this.apiOnline = false;
+        this.newItemEvent.emit(false);
         this.clicked = false;
       }
     })

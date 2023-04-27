@@ -1,18 +1,25 @@
 <body>
-    <div [ngClass]="{'hide':!apiOnline, 'show':apiOnline}" class="form">
-        <form>
+    <div [ngClass]="{'hide':!_apiOnline, 'show':_apiOnline}" class="form">
+        <form [formGroup]="formIp">
             <div class="ip">
-                <input type="text" placeholder="IP do arduino" id="ip" name="ip">
+                <input type="text" placeholder="IP do arduino" id="ip" name="ip" formControlName="ip">
             </div>
-            <br>
-            <div class="token">
-                <input type="text" placeholder="Token do Bot" id="token" name="token">
-            </div>
-            <br>
-            <div class="botao">
-                <button type="reset" class="redefinir">Redefinir</button>
-                <button (click)="restartApi()" type="reset" class="resetar">Resetar API</button>
+            <div class="mensagem__erro"
+            *ngIf="formIp.get('ip')?.errors?.['required'] && formIp.get('conteudo')?.touched">
+            IP é obrigatório!
             </div>
         </form>
+            <br>
+        <form [formGroup]="formToken">
+            <div class="token">
+                <input type="text" placeholder="Token do Bot" id="token" name="token" formControlName="token">
+            </div>
+        </form>
+            <br>
+            <div class="botao">
+                <button (click)="recarregarInfos()" type="reset" class="recarregar">Recarregar</button>
+                <button type="reset" class="redefinir">Salvar</button>
+                <button (click)="restartApi()" type="reset" class="resetar">Resetar API</button>
+            </div>
     </div>
 </body>

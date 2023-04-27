@@ -1,7 +1,7 @@
 body {
     background-color: #fff;
 }
-form{
+.form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,34 +28,43 @@ input[type="text"] {
     width: 50em;
     border: 1px solid #ccc;
     border-radius: 15px;
+    color: #686868;
 }
 button[type="reset"] {
     padding: 8px;
     margin-top: 1em;
     color: #fff;
-    border-radius: 4px;
     cursor: pointer;
-    margin-left: 75px;
     background-color: #5958F9;
     border: 1.5px solid rgba(0, 0, 0, 0.74);
     border-radius: 12px;
     transition: all 0.5s ease;
 }
-.redefinir:hover, .resetar:hover{
+.redefinir:hover, .resetar:hover, .recarregar:hover{
     padding-left: 15px;
     padding-right: 15px;
 }
 .botao{
-    margin-right: 70px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
 }
 
 .show {
-    display: block;
+    display: flex;
 }
 
 .hide {
     display: none;
 }
+
+.mensagem__erro {
+    font-size: 12px;
+    margin-left: 5px;
+    color: red;
+    margin-top: -25px;
+    margin-bottom: 20px;
+  }
 
 @media (max-width: 600px)
 {
