@@ -1,1 +1,18 @@
-<input type="text" (click)="alert()">
+<body>
+    <div [ngClass]="{'hide':!apiOnline, 'show':apiOnline}" class="form">
+        <form>
+            <div class="ip">
+                <input type="text" placeholder="IP do arduino" id="ip" name="ip">
+            </div>
+            <br>
+            <div class="token">
+                <input type="text" placeholder="Token do Bot" id="token" name="token">
+            </div>
+            <br>
+            <div class="botao">
+                <button type="reset" class="redefinir">Redefinir</button>
+                <button (click)="restartApi()" type="reset" class="resetar">Resetar API</button>
+            </div>
+        </form>
+    </div>
+</body>

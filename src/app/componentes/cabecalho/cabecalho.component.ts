@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { ApiServiceService } from 'src/app/service/api-service.service';
 })
 export class CabecalhoComponent implements OnInit {
 
+  @Input() apiOnline!: boolean;
   clicked!: boolean;
-  apiOnline = false;
 
   constructor(private apiService: ApiServiceService) { }
 

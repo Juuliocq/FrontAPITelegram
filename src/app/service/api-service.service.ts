@@ -15,4 +15,9 @@ export class ApiServiceService {
     let header = new HttpHeaders().set('Access-Control-Allow-Origin', this.API + "/actuator/health")
     return this.http.get(this.API + "/actuator/health", {observe: 'response', headers: header}).pipe(timeout(2000));
   }
+
+  restart() {
+    //let header = new HttpHeaders().set('Access-Control-Allow-Origin', this.API + "/actuator/restart")
+    return this.http.post(this.API + "/actuator/restart", {}).pipe(timeout(150));
+  }
 }

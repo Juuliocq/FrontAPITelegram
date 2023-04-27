@@ -1,0 +1,74 @@
+body {
+    background-color: #fff;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+    border: 2px solid gray;
+    border-radius: 12px;
+    width: 65%;
+    margin-left: 15%;
+    padding: 34px;
+    background-color: rgb(199, 192, 192);
+    -webkit-box-shadow: 4px 4px 4px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow: 4px 4px 4px rgba(50, 50, 50, 0.77);
+	box-shadow: 4px 4px 4px rgba(50, 50, 50, 0.77);
+}
+label {
+    display: inline-block;
+    width: 6em;
+    text-align: right;
+    margin-right: 1em;
+}
+input[type="text"] {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 50em;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+button[type="reset"] {
+    padding: 8px;
+    margin-top: 1em;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 75px;
+    background-color: #5958F9;
+    border: 1.5px solid rgba(0, 0, 0, 0.74);
+    border-radius: 12px;
+    transition: all 0.5s ease;
+}
+.redefinir:hover, .resetar:hover{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.botao{
+    margin-right: 70px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 600px)
+{
+    .ip, .token, .botao {
+        display: flex;
+        align-items: center;
+    }
+
+    form {
+        width: 50%;
+    }
+
+    input[type="text"] {
+        width: 120%;
+    }
+}

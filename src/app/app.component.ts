@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  apiOnline = false;
+
   title = 'APITelegramFront';
+
+  setApiOnline(apiOnline: boolean) {
+    this.apiOnline = apiOnline;
+  }
 }

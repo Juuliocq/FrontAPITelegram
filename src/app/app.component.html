@@ -1,4 +1,4 @@
-<app-cabecalho></app-cabecalho>
+<app-cabecalho (newItemEvent)="setApiOnline($any($event))" [apiOnline]="apiOnline"></app-cabecalho>
   <main>
-    <app-controle></app-controle>
+    <app-controle [apiOnline]="apiOnline"></app-controle>
   </main>
