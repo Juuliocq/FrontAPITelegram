@@ -16,6 +16,7 @@ body {
 	-moz-box-shadow: 4px 4px 4px rgba(50, 50, 50, 0.77);
 	box-shadow: 4px 4px 4px rgba(50, 50, 50, 0.77);
 }
+
 label {
     display: inline-block;
     width: 6em;
@@ -62,9 +63,25 @@ button[type="reset"] {
     font-size: 12px;
     margin-left: 5px;
     color: red;
-    margin-top: -25px;
+    margin-top: -10px;
     margin-bottom: 20px;
   }
+
+.img-validacao-ip {
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    top: 255px;
+    left: 1033px;
+}
+
+.img-validacao-token {
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    top: 300px;
+    left: 1033px;
+}
 
 @media (max-width: 600px)
 {

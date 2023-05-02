@@ -30,6 +30,14 @@ export class ApiServiceService {
     return this.http.get<Ip>(this.API + "/ipArduino", {headers: this.getHeader("/ipArduino")});
   }
 
+  setToken(token: Token): Observable<Token> {
+    return this.http.patch<Token>(this.API + "/token", token, {headers: this.getHeader("/token")});
+  }
+
+  setIp(ip: Ip): Observable<Ip> {
+    return this.http.patch<Ip>(this.API + "/ipArduino", ip, {headers: this.getHeader("/ipArduino")});
+  }
+
   private getHeader(url: string) {
     return new HttpHeaders().set('Access-Control-Allow-Origin', this.API + url)
   }

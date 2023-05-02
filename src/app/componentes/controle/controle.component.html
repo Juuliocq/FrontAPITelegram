@@ -2,23 +2,23 @@
     <div [ngClass]="{'hide':!_apiOnline, 'show':_apiOnline}" class="form">
         <form [formGroup]="formIp">
             <div class="ip">
-                <input type="text" placeholder="IP do arduino" id="ip" name="ip" formControlName="ip">
-            </div>
-            <div class="mensagem__erro"
-            *ngIf="formIp.get('ip')?.errors?.['required'] && formIp.get('conteudo')?.touched">
-            IP é obrigatório!
-            </div>
+                <input (input)="validaIp()" type="text" placeholder="IP do arduino" id="ip" name="ip" formControlName="ip">
+            </div> 
+            <img src="../../../assets/error.png" class="img-validacao-ip" *ngIf="formIp.get('ip')?.errors?.['ipInvalid']">
+            <img src="../../../assets/sucesso.png" class="img-validacao-ip" *ngIf="!formIp.get('ip')?.errors?.['ipInvalid']">
         </form>
             <br>
         <form [formGroup]="formToken">
             <div class="token">
-                <input type="text" placeholder="Token do Bot" id="token" name="token" formControlName="token">
+                <input type="text" (input)="validaToken()" placeholder="Token do Bot" id="token" name="token" formControlName="token">
             </div>
+            <img src="../../../assets/error.png" class="img-validacao-token" *ngIf="formToken.get('token')?.errors?.['tokenInvalid']">
+            <img src="../../../assets/sucesso.png" class="img-validacao-token" *ngIf="!formToken.get('token')?.errors?.['tokenInvalid']">
         </form>
             <br>
             <div class="botao">
                 <button (click)="recarregarInfos()" type="reset" class="recarregar">Recarregar</button>
-                <button type="reset" class="redefinir">Salvar</button>
+                <button (click)="salvar()" type="reset" class="redefinir">Salvar</button>
                 <button (click)="restartApi()" type="reset" class="resetar">Resetar API</button>
             </div>
     </div>
