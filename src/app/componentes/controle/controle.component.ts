@@ -73,7 +73,7 @@ export class ControleComponent implements OnInit, AfterViewInit {
   validaIp() {
     this.formIp.controls['ip'].setErrors({ 'ipInvalid': true })
     this.arduinoService.getIpValido(this.formIp.controls['ip'].value
-    ).pipe(timeout(100)).subscribe({
+    ).pipe(timeout(10000)).subscribe({
       complete: () => {
         this.formIp.controls['ip'].setErrors({ 'ipInvalid': false })
       },
@@ -87,7 +87,7 @@ export class ControleComponent implements OnInit, AfterViewInit {
     this.formToken.controls['token'].setErrors({ 'tokenInvalid': true })
 
     this.tokenService.getValidacaoToken(this.formToken.controls['token'].value
-    ).pipe(timeout(1000)).subscribe({
+    ).pipe(timeout(5000)).subscribe({
       complete: () => {
         this.formToken.controls['token'].setErrors({ 'tokenInvalid': false })
       },

@@ -14,4 +14,8 @@ export class AppComponent {
   setApiOnline(apiOnline: boolean) {
     this.apiOnline = apiOnline;
   }
+
+  apiOnlinemet() {
+    return this.apiOnline;
+  }
 }

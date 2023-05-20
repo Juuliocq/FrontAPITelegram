@@ -1,6 +1,6 @@
 <header [ngClass]="{'red':!apiOnline, 'green':apiOnline}" class="header">
     <div class="header__container">
-        <button [ngClass]="{'button-reload-spinning':clicked, 'button-reload-notspinning':!clicked}" (click)="verifyAPIOnline()" class="button-reload"></button>
+        <button [ngClass]="{'button-reload-spinning':clicked, 'button-reload-notspinning':!clicked}" (click)="verifyAPIOnline()" class="button-reload {{ classImg }}"></button>
 
         <div *ngIf="apiOnline; then divApiOnline else divApiOffline">
         </div>

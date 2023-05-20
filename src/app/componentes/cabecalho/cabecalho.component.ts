@@ -11,6 +11,7 @@ export class CabecalhoComponent implements OnInit {
   @Input() apiOnline!: boolean;
   clicked!: boolean;
   @Output() newItemEvent = new EventEmitter<boolean>();
+  classImg: string = "button-reload-red"
 
   constructor(private apiService: ApiServiceService) { }
 
@@ -23,14 +24,16 @@ export class CabecalhoComponent implements OnInit {
     this.clicked = true;
     this.apiService.getApiOnline().subscribe({
       complete: () => {
-        this.apiOnline = true;
         this.newItemEvent.emit(true);
+        this.apiOnline = true;
         this.clicked = false;
+        this.classImg = "button-reload-green";
       }, 
       error: () => {
-        this.apiOnline = false;
         this.newItemEvent.emit(false);
+        this.apiOnline = false;
         this.clicked = false;
+        this.classImg = "button-reload-red";
       }
     })
   }
