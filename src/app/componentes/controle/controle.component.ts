@@ -64,8 +64,8 @@ export class ControleComponent implements OnInit, AfterViewInit {
         ip: ipResponse.ip
       })
 
-      this.validaIp();
-      //this.validaToken();
+      //this.validaIp();
+      this.validaToken();
     }
     )
   }
@@ -98,13 +98,13 @@ export class ControleComponent implements OnInit, AfterViewInit {
   }
 
   salvar() {
-    if (!this.formIp.get('ip')?.errors?.['ipInvalid']) {
+    //if (!this.formIp.get('ip')?.errors?.['ipInvalid']) {
       this.apiService.setIp({
         "ip": this.formIp.controls['ip'].value
       }).subscribe();
-    }
+    //}
 
-    if (!this.formToken.get('token')?.valid) {
+    if (!this.formToken.get('token')?.errors?.['tokenInvalid']) {
       this.apiService.setToken({
         "token": this.formToken.controls['token'].value
       }).subscribe();

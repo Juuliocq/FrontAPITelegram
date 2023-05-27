@@ -1,25 +1,21 @@
 <body>
-    <div [ngClass]="{'hide':!_apiOnline, 'show':_apiOnline}" class="form">
-        <form [formGroup]="formIp">
-            <div class="ip">
+    <div [ngClass]="{'hide':!_apiOnline, 'show':_apiOnline}" class="container">
+        <form class="form">
+            <form [formGroup]="formIp" style="display: flex;">
                 <input (input)="validaIp()" type="text" placeholder="IP do arduino" id="ip" name="ip" formControlName="ip">
-            </div> 
-            <img src="../../../assets/error.png" class="img-validacao-ip" *ngIf="formIp.get('ip')?.errors?.['ipInvalid']">
-            <img src="../../../assets/sucesso.png" class="img-validacao-ip" *ngIf="!formIp.get('ip')?.errors?.['ipInvalid']">
-        </form>
-            <br>
-        <form [formGroup]="formToken">
-            <div class="token">
+                <img src="../../../assets/error.png" class="img-validacao-ip" *ngIf="formIp.get('ip')?.errors?.['ipInvalid']">
+                <img src="../../../assets/sucesso.png" class="img-validacao-ip" *ngIf="!formIp.get('ip')?.errors?.['ipInvalid']">
+            </form>
+            <form [formGroup]="formToken" style="display: flex;">
                 <input type="text" (input)="validaToken()" placeholder="Token do Bot" id="token" name="token" formControlName="token">
-            </div>
-            <img src="../../../assets/error.png" class="img-validacao-token" *ngIf="formToken.get('token')?.errors?.['tokenInvalid']">
-            <img src="../../../assets/sucesso.png" class="img-validacao-token" *ngIf="!formToken.get('token')?.errors?.['tokenInvalid']">
-        </form>
-            <br>
+                <img src="../../../assets/error.png" class="img-validacao-token" *ngIf="formToken.get('token')?.errors?.['tokenInvalid']">
+                <img src="../../../assets/sucesso.png" class="img-validacao-token" *ngIf="!formToken.get('token')?.errors?.['tokenInvalid']">
+            </form>
             <div class="botao">
                 <button (click)="recarregarInfos()" type="reset" class="recarregar">Recarregar</button>
                 <button (click)="salvar()" type="reset" class="redefinir">Salvar</button>
                 <button (click)="restartApi()" type="reset" class="resetar">Resetar API</button>
             </div>
+        </form>
     </div>
 </body>
